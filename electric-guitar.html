@@ -284,24 +284,25 @@
         <p>&copy; 2024 XYZ Music Store | All Rights Reserved</p>
     </footer>
 
-    <script>
+<script>
+function addToCart(name, price, image) {
+    // Always get the latest cart from localStorage
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    function addToCart(name, price, image) {
+
     const product = { name, price, image };
     cart.push(product);
     localStorage.setItem("cart", JSON.stringify(cart));
 
     const msg = document.getElementById("addedMessage");
-    msg.style.display = "block"; // show
-    setTimeout(() => {
-        msg.style.display = "none"; // hide after 3 seconds
-    }, 3000);
-    }
+    msg.style.display = "block";
+    setTimeout(() => { msg.style.display = "none"; }, 3000);
+}
+</script>
 
-    </script>
 
 
 </body>
 </html>
+
 
 
