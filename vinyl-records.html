@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinyl Records - XYZ Music Store</title>
+    <style>
+        /* Resetting margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bangers', sans-serif; /* Rock-inspired font */
+        }
+
+        /* Body Styling */
+        body {
+            background-color: #141414; /* Dark background */
+            color: #fff;
+            text-align: center;
+            padding: 0;
+            overflow-x: hidden;
+            padding-bottom: 100px;
+        }
+
+        /* Header Section (Navigation Bar) */
+/* Header Section (Navigation Bar) */
+/* Header Section (Navigation Bar) */
+header {
+    background-color: #1a1a1a; /* Dark background */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10; /* Ensures header stays on top */
+}
+
+header .header-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #fff; /* Keep the logo white */
+    letter-spacing: 1px;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #fff; /* Default color for all links */
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+}
+
+/* Make Home, Shop, Cart, and Contact Us links orangish */
+nav a[href="index.html"], 
+nav a[href="contact-us.html"],  /* Add this line to target the 'Shop' link */
+nav a[href="cart.html"],
+nav a[href="#contact-us"] { 
+    color: #ff4500; /* Orangish color */
+}
+
+nav a:hover {
+    color: #ff4500;
+    border-bottom: 2px solid #ff4500;
+}
+
+        /* Hero Section Styling */
+        .hero {
+            height: 100vh;
+            background: url('vinyl-hero-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ff4500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+            animation: fadeIn 1.5s ease-out;
+            margin-top: 80px; /* Adjust for fixed header */
+        }
+
+        /* Hero Text Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 900;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin: 20px 0;
+            line-height: 1.5;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        /* Vinyl Grid Section */
+        .vinyl-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+            margin-top: 30px;
+        }
+
+        .vinyl {
+            background: #1a1a1a;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .vinyl img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .vinyl:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 69, 0, 0.8);
+        }
+
+        .vinyl-info {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .vinyl:hover .vinyl-info {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .vinyl h3 {
+            font-size: 1.6em;
+            margin-bottom: 10px;
+        }
+
+        .vinyl p {
+            font-size: 1em;
+            line-height: 1.4;
+        }
+
+        /* Button */
+        .button {
+            padding: 12px 25px;
+            background: transparent;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 2px solid #ff4500;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: #ff4500;
+            transition: 0.4s;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 0;
+        }
+
+        .button:hover::before {
+            width: 0;
+            height: 0;
+            opacity: 1;
+        }
+
+        .button:hover {
+            color: #000;
+            background: #ff4500;
+            box-shadow: 0 4px 15px rgba(255, 69, 0, 0.7);
+        }
+
+        /* Footer Section */
+        footer {
+            background: #1a1a1a;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+
+        footer p {
+            font-size: 0.8em;
+            letter-spacing: 1px;
+        }
+
+        /* 1 Added to Cart Message (Green) */
+        .added-to-cart-message {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #28a745;  /* Green color */
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            display: none;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section (Navigation Bar) -->
+   <!-- Header Section (Navigation Bar) -->
+<header>
+    <div class="header-container">
+        <div class="logo">
+            XYZ Music Store
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+<a href="contact-us.html">Contact Us</a>
+
+        </nav>
+    </div>
+</header>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Vinyl Records</h1>
+        <p>Experience the timeless magic of vinyl. Classic albums, unforgettable sound.</p>
+        <p>Browse our collection and find your next favorite record!</p>
+        <a href="#vinyls" class="button">Browse Albums</a>
+    </section>
+
+    <!-- Vinyl Grid Section -->
+    <section id="vinyls" class="vinyl-grid">
+        <!-- Beatles -->
+        <div class="vinyl">
+            <img src="beatles-abbey-road.jpg" alt="The Beatles - Abbey Road">
+            <div class="vinyl-info">
+                <h3>The Beatles - Abbey Road</h3>
+                <p>One of the most iconic albums of all time, featuring "Come Together" and "Here Comes the Sun."</p>
+                <p>$122 -</p> 
+                <button class="button" onclick="addToCart('The Beatles - Abbey Road', 122, 'beatles-abbey-road.jpg')">Add to Cart</button>
+
+            </div>
+        </div>
+
+        <!-- Pink Floyd -->
+        <div class="vinyl">
+            <img src="pink-floyd-dark-side.jpg" alt="Pink Floyd - Dark Side of the Moon">
+            <div class="vinyl-info">
+                <h3>Pink Floyd - Dark Side of the Moon</h3>
+                <p>Immerse yourself in one of the greatest rock albums, known for its experimental sound and profound lyrics.</p>
+                <p>$120 -</p>
+                <button class="button" onclick="addToCart('Pink Floyd - Dark Side of the Moon', 120, 'pink-floyd-dark-side.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Michael Jackson -->
+        <div class="vinyl">
+            <img src="mj-thriller.jpg" alt="Michael Jackson - Thriller">
+            <div class="vinyl-info">
+                <h3>Michael Jackson - Thriller</h3>
+                <p>World's best-selling album ever, featuring hits like "Billie Jean" and "Thriller".</p>
+                <p>$100 -</p>
+<button class="button" onclick="addToCart('Michael Jackson - Thriller', 100, 'mj-thriller.jpg')">Add to Cart</button>
+
+            </div>
+        </div>
+
+        <!-- Fleetwood Mac -->
+        <div class="vinyl">
+            <img src="fleetwood-mac-rumours.jpg" alt="Fleetwood Mac - Rumours">
+            <div class="vinyl-info">
+                <h3>Fleetwood Mac - Rumours</h3>
+                <p>An album full of emotional depth and legendary songs, from "Go Your Own Way" to "Dreams".</p>
+                <p>$115 -</p>
+                <button class="button" onclick="addToCart('Fleetwood Mac - Rumours', 115, 'fleetwood-mac-rumours.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Queen -->
+        <div class="vinyl">
+            <img src="queen-a-night-at-the-opera.jpg" alt="Queen - A Night at the Opera">
+            <div class="vinyl-info">
+                <h3>Queen - A Night at the Opera</h3>
+                <p>Featuring the epic "Bohemian Rhapsody," Queen’s magnum opus is a must-have for any vinyl collection.</p>
+                <p>$130 -</p>
+                <button class="button" onclick="addToCart('Queen - A Night at the Opera', 130, 'queen-a-night-at-the-opera.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Led Zeppelin -->
+        <div class="vinyl">
+            <img src="led-zeppelin-iv.jpg" alt="Led Zeppelin - IV">
+            <div class="vinyl-info">
+                <h3>Led Zeppelin - IV</h3>
+                <p>The definitive rock album, home to classics like "Stairway to Heaven" and "Black Dog".</p>
+                <p>$135 -</p>
+                <button class="button" onclick="addToCart('Led Zeppelin - IV', 135, 'led-zeppelin-iv.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Rolling Stones -->
+        <div class="vinyl">
+            <img src="rolling-stones-exile.jpg" alt="Rolling Stones - Exile on Main St.">
+            <div class="vinyl-info">
+                <h3>The Rolling Stones - Exile on Main St.</h3>
+                <p>A raw, bluesy masterpiece that cemented the Rolling Stones as rock legends.</p>
+                <p>$110 -</p>
+                <button class="button" onclick="addToCart('The Rolling Stones - Exile on Main St.', 110, 'rolling-stones-exile.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- AC/DC -->
+        <div class="vinyl">
+            <img src="acdc-back-in-black.jpg" alt="AC/DC - Back in Black">
+            <div class="vinyl-info">
+                <h3>AC/DC - Back in Black</h3>
+                <p>The ultimate hard rock album, featuring the unforgettable title track and "You Shook Me All Night Long".</p>
+                <p>$105 -</p>
+                <button class="button" onclick="addToCart('AC/DC - Back in Black', 105, 'acdc-back-in-black.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Black Sabbath -->
+        <div class="vinyl">
+            <img src="black-sabbath-paranoid.jpg" alt="Black Sabbath - Paranoid">
+            <div class="vinyl-info">
+                <h3>Black Sabbath - Paranoid</h3>
+                <p>A heavy metal masterpiece, with timeless tracks like "Iron Man" and "War Pigs".</p>
+                <p>$140 -</p>
+                <button class="button" onclick="addToCart('Black Sabbath - Paranoid', 140, 'black-sabbath-paranoid.jpg')">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Jimi Hendrix -->
+        <div class="vinyl">
+            <img src="hendrix-are-you-experienced.jpg" alt="Jimi Hendrix - Are You Experienced">
+            <div class="vinyl-info">
+                <h3>Jimi Hendrix - Are You Experienced</h3>
+                <p>One of the greatest debut albums in rock history, featuring tracks like "Purple Haze" and "Hey Joe".</p>
+                <p>$125 -</p>
+                <button class="button" onclick="addToCart('Jimi Hendrix - Are You Experienced', 125, 'hendrix-are-you-experienced.jpg')">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1 Added to Cart Message (Green) -->
+    <div class="added-to-cart-message" id="addedMessage">
+        Added to cart!
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 XYZ Music Store | All Rights Reserved</p>
+    </footer>
+
+<script>
+    // Initialize cart from localStorage or as empty array
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function addToCart(name, price, image) {
+        const cartItem = {
+            name: name,
+            price: price,
+            image: image
+        };
+
+        // Add to cart array
+        cart.push(cartItem);
+
+        // Save back to localStorage
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        // Show the green "added to cart" message
+        const msg = document.getElementById("addedMessage");
+        msg.style.display = "block";
+        setTimeout(() => {
+            msg.style.display = "none";
+        }, 3000);
+    }
+</script>
+
+
+
+</body>
+</html>
