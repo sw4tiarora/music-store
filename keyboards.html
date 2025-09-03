@@ -224,10 +224,11 @@
         <p>&copy; 2024 XYZ Music Store | All Rights Reserved</p>
     </footer>
 
-    <script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
+<script>
 function addToCart(name, price, image) {
+    // Always get the latest cart from localStorage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
     const product = { name, price, image };
     cart.push(product);
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -239,6 +240,8 @@ function addToCart(name, price, image) {
 </script>
 
 
+
 </body>
 </html>
+
 
