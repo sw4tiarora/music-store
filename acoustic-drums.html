@@ -145,7 +145,7 @@
     <header>
         <h1>XYZ Music Store</h1>
         <nav>
-            <a href=index.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="cart.html">Cart</a>
             <a href="contact-us.html">Contact Us</a>
         </nav>
@@ -241,9 +241,10 @@
     </footer>
 
 <script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
 function addToCart(name, price, image) {
+    // Always get the latest cart from localStorage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
     const product = { name, price, image };
     cart.push(product);
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -255,6 +256,8 @@ function addToCart(name, price, image) {
 </script>
 
 
+
 </body>
 </html>
+
 
