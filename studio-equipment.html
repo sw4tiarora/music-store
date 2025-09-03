@@ -109,22 +109,21 @@
             letter-spacing: 1px;
         }
 
-        /* The green "Added to Cart" notification */
-        .cart-notification {
+        .added-to-cart-message {
+            display: none;
             position: fixed;
-            bottom: 60px; /* sit above footer */
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            min-width: 260px;
             background-color: #28a745;
             color: white;
-            padding: 10px 16px;
-            text-align: center;
-            font-size: 1.1em;
-            display: none;
-            border-radius: 8px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+            padding: 10px 20px;
+             border-radius: 5px;
+            font-size: 1.2em;
+            z-index: 9999;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
+
     </style>
 </head>
 <body>
@@ -249,38 +248,28 @@
     </section>
 
     <!-- Cart Notification -->
-    <div class="cart-notification" id="cart-notification">
-        Added to cart!
-    </div>
+    <div id="addedMessage" class="added-to-cart-message">Added to Cart!</div>
+
 
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 XYZ Music Store | All Rights Reserved</p>
     </footer>
 
-    <script>
-        // Initialize cart from localStorage or empty array
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-        function addToCart(productName, productPrice, productImage) {
-            const product = {
-                name: productName,
-                price: productPrice,
-                image: productImage
-            };
+function addToCart(name, price, image) {
+    const product = { name, price, image };
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
 
-            cart.push(product);
-            localStorage.setItem('cart', JSON.stringify(cart));
+    const msg = document.getElementById("addedMessage");
+    msg.style.display = "block";
+    setTimeout(() => { msg.style.display = "none"; }, 3000);
+}
+</script>
 
-            const notification = document.getElementById('cart-notification');
-            notification.style.display = 'block';
-            setTimeout(function () {
-                notification.style.display = 'none';
-            }, 3000);
-
-            // Debug: see it in DevTools console
-            console.log('Cart now:', cart);
-        }
-    </script>
 </body>
+
 </html>
