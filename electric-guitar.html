@@ -107,15 +107,21 @@
             background-color: #ff6347;
         }
 
-        .added-text {
-            display: none;
-            background-color: #28a745;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-size: 1.2em;
+        .added-to-cart-message {
+        display: none; /* hidden by default */
+        position: fixed; /* fixed relative to viewport */
+        bottom: 20px;   /* 20px from bottom of screen */
+        left: 50%;      /* center horizontally */
+        transform: translateX(-50%);
+        background-color: #28a745; /* green */
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1.2em;
+        z-index: 9999; /* stay on top of everything */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
+
 
         footer {
             background: #1a1a1a;
@@ -270,7 +276,8 @@
     </section>
 
     <!-- Added to Cart Text -->
-    <div class="added-text" id="addedText">Added to Cart!</div>
+    <div id="addedMessage" class="added-to-cart-message">Added to Cart!</div>
+
 
     <!-- Footer Section -->
     <footer>
@@ -278,29 +285,22 @@
     </footer>
 
     <script>
-    // Initialize cart from localStorage or empty
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    function addToCart(name, price, image) {
+    const product = { name, price, image };
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
 
-    // Function to add item to the cart
-    function addToCart(productName, productPrice, productImage) {
-        const product = {
-            name: productName,
-            price: productPrice,
-            image: productImage
-        };
-
-        cart.push(product); // Add the product
-        localStorage.setItem("cart", JSON.stringify(cart)); // Save to localStorage
-
-        // Show "Added to Cart" text
-        var text = document.getElementById("addedText");
-        text.style.display = "block";
-        setTimeout(function () {
-            text.style.display = "none";
-        }, 3000);
+    const msg = document.getElementById("addedMessage");
+    msg.style.display = "block"; // show
+    setTimeout(() => {
+        msg.style.display = "none"; // hide after 3 seconds
+    }, 3000);
     }
+
     </script>
 
 
 </body>
 </html>
+
