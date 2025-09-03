@@ -12,7 +12,7 @@ The site is designed with a rock-themed aesthetic and provides categories for Vi
 - Clean and simple navigation
 
 ## 🌐 Live Demo
-👉 [View Website](https://swatiarora.github.io/music-store)  
+👉 [View Website](https://sw4tiarora.github.io/music-store/)  
 (Link will work once hosted with GitHub Pages)
 
 ## 🛠 Technologies Used
