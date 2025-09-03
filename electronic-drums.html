@@ -107,15 +107,21 @@
             background-color: #ff6347;
         }
 
-        .added-text {
+        .added-to-cart-message {
             display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             background-color: #28a745;
-            color: #fff;
-            padding: 10px;
+            color: white;
+            padding: 10px 20px;
             border-radius: 5px;
-            margin-top: 20px;
             font-size: 1.2em;
+            z-index: 9999;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
+
 
         footer {
             background: #1a1a1a;
@@ -235,6 +241,8 @@ function addToCart(name, price, image) {
 }
 </script>
 
+
 </body>
 </html>
+
 
