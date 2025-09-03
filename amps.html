@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amps - XYZ Music Store</title>
+    <style>
+        /* Resetting margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bangers', sans-serif;
+        }
+
+        /* Body Styling */
+        body {
+            background-color: #141414;
+            color: #fff;
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #ff4500;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Amps Section */
+        .amps {
+            margin-top: 60px;
+            padding: 20px;
+        }
+
+        .amp-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #222;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .amp-item img {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+
+        .amp-item .amp-info {
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .amp-item .price {
+            color: #ff4500;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .add-to-cart-btn {
+            background-color: #ff4500;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #ff6347;
+        }
+
+        .added-text {
+            display: none;
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        footer {
+            background: #1a1a1a;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+
+        footer p {
+            font-size: 0.8em;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>XYZ Music Store</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="contact-us.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Amps Section -->
+    <section class="amps">
+        <div class="amp-item">
+            <img src="fender-amp.jpg" alt="Fender Amp">
+            <div class="amp-info">
+                <h3>Fender Champion 100</h3>
+                <p>Perfect for rock and blues, this amp offers 100W of pure Fender tone.</p>
+                <div class="price">$349.99</div>
+                <a href="https://www.fender.com" target="_blank">
+                    <button class="add-to-cart-btn" onclick="addToCart('Fender Champion 100', 349.99)">Go to Website</button>
+                </a>
+                <button class="add-to-cart-btn" onclick="addToCart('Fender Champion 100', 349.99)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="amp-item">
+            <img src="marshall-amp.jpg" alt="Marshall Amp">
+            <div class="amp-info">
+                <h3>Marshall Code 50</h3>
+                <p>This 50W amp delivers classic Marshall sound with modern digital controls.</p>
+                <div class="price">$299.99</div>
+                <a href="https://www.marshall.com" target="_blank">
+                    <button class="add-to-cart-btn" onclick="addToCart('Marshall Code 50', 299.99)">Go to Website</button>
+                </a>
+                <button class="add-to-cart-btn" onclick="addToCart('Marshall Code 50', 299.99)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="amp-item">
+            <img src="orange-amp.jpg" alt="Orange Amp">
+            <div class="amp-info">
+                <h3>Orange Crush 35RT</h3>
+                <p>A compact amp with a warm tone, ideal for practice and small gigs.</p>
+                <div class="price">$259.99</div>
+                <a href="https://www.orangeamps.com" target="_blank">
+                    <button class="add-to-cart-btn" onclick="addToCart('Orange Crush 35RT', 259.99)">Go to Website</button>
+                </a>
+                <button class="add-to-cart-btn" onclick="addToCart('Orange Crush 35RT', 259.99)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Additional Amps -->
+        <div class="amp-item">
+            <img src="vox-ac30.jpg" alt="Vox AC30">
+            <div class="amp-info">
+                <h3>Vox AC30</h3>
+                <p>A classic British amp with chimey tones, perfect for rock legends and iconic sound.</p>
+                <div class="price">$1,299.99</div>
+                <a href="https://www.voxamps.com" target="_blank">
+                    <button class="add-to-cart-btn" onclick="addToCart('Vox AC30', 1299.99)">Go to Website</button>
+                </a>
+                <button class="add-to-cart-btn" onclick="addToCart('Vox AC30', 1299.99)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="amp-item">
+            <img src="mesa-boogie.jpg" alt="Mesa Boogie">
+            <div class="amp-info">
+                <h3>Mesa Boogie Dual Rectifier</h3>
+                <p>Known for its high-gain tones, ideal for metal guitarists and aggressive sounds.</p>
+                <div class="price">$1,899.99</div>
+                <a href="https://www.mesaboogie.com" target="_blank">
+                    <button class="add-to-cart-btn" onclick="addToCart('Mesa Boogie Dual Rectifier', 1899.99)">Go to Website</button>
+                </a>
+                <button class="add-to-cart-btn" onclick="addToCart('Mesa Boogie Dual Rectifier', 1899.99)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="amp-item">
+            <img src="roland-jc120.jpg" alt="Roland JC-120">
+            <div class="amp-info">
+                <h3>Roland JC-120</h3>
+                <p>A solid-state amp famous for its clean tone and built-in chorus effect.</p>
+                <div class="price">$999.99</div>
+                <a href="https://www.roland.com" target="_blank">
+                    <button class="add-to-cart-btn" onclick="addToCart('Roland JC-120', 999.99)">Go to Website</button>
+                </a>
+                <button class="add-to-cart-btn" onclick="addToCart('Roland JC-120', 999.99)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Added to Cart Text -->
+    <div class="added-text" id="addedText">Added to Cart!</div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 XYZ Music Store | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Initialize cart from localStorage
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Function to add item to the cart
+        function addToCart(productName, productPrice) {
+            const product = {
+                name: productName,
+                price: productPrice
+            };
+
+            cart.push(product); // Add the product to the cart
+            localStorage.setItem("cart", JSON.stringify(cart)); // Save cart to localStorage
+
+            // Show "Added to Cart" text
+            var text = document.getElementById("addedText");
+            text.style.display = "block";  // Show the "Added to Cart" text
+            setTimeout(function() {
+                text.style.display = "none";  // Hide the "Added to Cart" text after 3 seconds
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>

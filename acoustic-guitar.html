@@ -1,0 +1,247 @@
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acoustic Guitar</title>
+    <style>
+        /* Resetting margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bangers', sans-serif;
+        }
+
+        body {
+            background-color: #141414;
+            color: #fff;
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #ff4500;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Brands Section */
+        .brands {
+            margin-top: 60px;
+            padding: 20px;
+        }
+
+        .brand {
+            margin-bottom: 30px;
+            text-align: left;
+            padding: 10px;
+        }
+
+        .brand h2 {
+            color: #ff4500;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        /* Guitar Item Styling */
+        .guitar-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #222;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .guitar-item img {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+
+        .guitar-item .guitar-info {
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .guitar-item .price {
+            color: #ff4500;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .add-to-cart-btn {
+            background-color: #ff4500;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #ff6347;
+        }
+
+        .added-text {
+            display: none;
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        footer {
+            background: #1a1a1a;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+
+        footer p {
+            font-size: 0.8em;
+            letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>XYZ Music Store</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="contact-us.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Brands Section -->
+    <section class="brands">
+        <div class="brand">
+            <h2>Yamaha Acoustic Guitars</h2>
+            <div class="guitar-item">
+                <img src="yamaha-acoustic.jpg" alt="Yamaha Acoustic Guitar">
+                <div class="guitar-info">
+                    <h3>Yamaha FG800</h3>
+                    <p>The Yamaha FG800 offers exceptional sound quality, great for beginners and seasoned players alike.</p>
+                    <div class="price">$249.99</div>
+                    <a href="https://www.yamaha.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Yamaha FG800', 249.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Yamaha FG800', 249.99, 'yamaha-acoustic.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="guitar-item">
+                <img src="yamaha-acoustic-2.jpg" alt="Yamaha Acoustic Guitar 2">
+                <div class="guitar-info">
+                    <h3>Yamaha APX600</h3>
+                    <p>A perfect blend of style and sound, this guitar is great for live performances.</p>
+                    <div class="price">$399.99</div>
+                    <a href="https://www.yamaha.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Yamaha APX600', 399.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Yamaha APX600', 399.99, 'yamaha-acoustic-2.jpg')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand">
+            <h2>Taylor Acoustic Guitars</h2>
+            <div class="guitar-item">
+                <img src="taylor-acoustic.jpg" alt="Taylor Acoustic Guitar">
+                <div class="guitar-info">
+                    <h3>Taylor 314ce</h3>
+                    <p>The Taylor 314ce features incredible tonal clarity, perfect for any acoustic performance.</p>
+                    <div class="price">$1,299.99</div>
+                    <a href="https://www.taylorguitars.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Taylor 314ce', 1299.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Taylor 314ce', 1299.99, 'taylor-acoustic.jpg')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand">
+            <h2>Martin Acoustic Guitars</h2>
+            <div class="guitar-item">
+                <img src="martin-acoustic.jpg" alt="Martin Acoustic Guitar">
+                <div class="guitar-info">
+                    <h3>Martin D-28</h3>
+                    <p>One of the most famous models in the world, renowned for its rich tone and superb craftsmanship.</p>
+                    <div class="price">$2,799.99</div>
+                    <a href="https://www.martinguitar.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Martin D-28', 2799.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Martin D-28', 2799.99, 'martin-acoustic.jpg')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Added to Cart Text -->
+    <div class="added-text" id="addedText">Added to Cart!</div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 XYZ Music Store | All Rights Reserved</p>
+    </footer>
+
+<script>
+    // Initialize cart from localStorage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Function to add item to the cart
+    function addToCart(productName, productPrice, productImage) {
+        const product = {
+            name: productName,
+            price: productPrice,
+            image: productImage
+        };
+
+        cart.push(product); // Add the product to the cart
+        localStorage.setItem("cart", JSON.stringify(cart)); // Save cart to localStorage
+
+        // Show "Added to Cart" text
+        var text = document.getElementById("addedText");
+        text.style.display = "block";  
+        setTimeout(function() {
+            text.style.display = "none";  
+        }, 3000);
+    }
+</script>
+</body>
+</html>

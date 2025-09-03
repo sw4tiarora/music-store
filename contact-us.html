@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - XYZ Music Store</title>
+    <style>
+        /* Resetting margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bangers', sans-serif; /* Rock-inspired font */
+        }
+
+        /* Body Styling */
+        body {
+            background-color: #141414; /* Dark background */
+            color: #fff;
+            text-align: center;
+            padding-bottom: 100px; /* Add padding to avoid footer overlap */
+            overflow-x: hidden;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #ff4500;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section Styling */
+        .hero {
+            height: 100vh;
+            background: url('contact-hero-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ff4500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Hero Text Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin: 20px 0;
+            line-height: 1.5;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        /* Contact Form Section */
+        .contact-form {
+            background-color: #1a1a1a;
+            padding: 50px;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .contact-form h2 {
+            color: #ff4500;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        .contact-form button {
+            background-color: #ff4500;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #ff2800;
+            box-shadow: 0 4px 10px rgba(255, 69, 0, 0.7);
+        }
+
+        /* Confirmation Message Styling */
+        .confirmation {
+            display: none;
+            background-color: #2ecc71;
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        /* Footer Section */
+        footer {
+            background: #1a1a1a;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+
+        footer p {
+            font-size: 0.8em;
+            letter-spacing: 1px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>XYZ Music Store</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="contact-us.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Contact Us</h1>
+        <p>Have questions? We’d love to hear from you. Get in touch, and we’ll get back to you as soon as we can!</p>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form">
+        <h2>Get In Touch</h2>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+
+        <!-- Confirmation Message -->
+        <div class="confirmation" id="confirmationMessage">
+            Thank you for reaching out! We will get back to you soon.
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 XYZ Music Store | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Ensure the DOM is fully loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            // Handle form submission and display confirmation message
+            document.getElementById("contactForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent form from submitting normally
+
+                // Show the confirmation message
+                const confirmationMessage = document.getElementById("confirmationMessage");
+                confirmationMessage.style.display = "block";
+                console.log("Form submitted, confirmation message displayed.");
+
+                // Clear the form after submission (optional)
+                document.getElementById("contactForm").reset();
+
+                // Hide the confirmation message after 5 seconds
+                setTimeout(function() {
+                    confirmationMessage.style.display = "none";
+                    console.log("Confirmation message hidden after 5 seconds.");
+                }, 5000); // 5000ms = 5 seconds
+            });
+        });
+    </script>
+
+</body>
+</html>

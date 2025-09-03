@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bass Guitar</title>
+    <style>
+        /* Resetting margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bangers', sans-serif;
+        }
+
+        body {
+            background-color: #141414;
+            color: #fff;
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #ff4500;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Brands Section */
+        .brands {
+            margin-top: 60px;
+            padding: 20px;
+        }
+
+        .brand {
+            margin-bottom: 30px;
+            text-align: left;
+            padding: 10px;
+        }
+
+        .brand h2 {
+            color: #ff4500;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        /* Guitar Item Styling */
+        .guitar-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #222;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .guitar-item img {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+
+        .guitar-item .guitar-info {
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .guitar-item .price {
+            color: #ff4500;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .add-to-cart-btn {
+            background-color: #ff4500;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #ff6347;
+        }
+
+        .added-text {
+            display: none;
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        footer {
+            background: #1a1a1a;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+
+        footer p {
+            font-size: 0.8em;
+            letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>XYZ Music Store</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="contact-us.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Brands Section -->
+    <section class="brands">
+        <!-- Fender Bass Guitars -->
+        <div class="brand">
+            <h2>Fender Bass Guitars</h2>
+            <div class="guitar-item">
+                <img src="fender-precision-bass.jpg" alt="Fender Precision Bass">
+                <div class="guitar-info">
+                    <h3>Fender American Professional Precision Bass</h3>
+                    <p>The classic, bold sound that made the Precision Bass a favorite for many bassists.</p>
+                    <div class="price">$1,299.99</div>
+                    <a href="https://www.fender.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Fender American Professional Precision Bass', 1299.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Fender American Professional Precision Bass', 1299.99,'fender-precision-bass.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="guitar-item">
+                <img src="fender-jazz-bass.jpg" alt="Fender Jazz Bass">
+                <div class="guitar-info">
+                    <h3>Fender American Professional Jazz Bass</h3>
+                    <p>The Jazz Bass has a smooth, bright sound and is a favorite for its versatility.</p>
+                    <div class="price">$1,499.99</div>
+                    <a href="https://www.fender.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Fender American Professional Jazz Bass', 1499.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Fender American Professional Jazz Bass', 1499.99,'fender-jazz-bass.jpg')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gibson Bass Guitars -->
+        <div class="brand">
+            <h2>Gibson Bass Guitars</h2>
+            <div class="guitar-item">
+                <img src="gibson-eb-3.jpg" alt="Gibson EB-3 Bass">
+                <div class="guitar-info">
+                    <h3>Gibson EB-3 Bass</h3>
+                    <p>The EB-3 delivers powerful, punchy tones and features a classic short-scale neck.</p>
+                    <div class="price">$1,499.99</div>
+                    <a href="https://www.gibson.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Gibson EB-3 Bass', 1499.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Gibson EB-3 Bass', 1499.99,'gibson-eb-3.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="guitar-item">
+                <img src="gibson-thunderbird.jpg" alt="Gibson Thunderbird">
+                <div class="guitar-info">
+                    <h3>Gibson Thunderbird Bass</h3>
+                    <p>A powerful bass with a deep tone and a distinctive look, perfect for rock and metal.</p>
+                    <div class="price">$1,799.99</div>
+                    <a href="https://www.gibson.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Gibson Thunderbird Bass', 1799.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Gibson Thunderbird Bass', 1799.99,'gibson-thunderbird.jpg')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Music Man Bass Guitars -->
+        <div class="brand">
+            <h2>Music Man Bass Guitars</h2>
+            <div class="guitar-item">
+                <img src="music-man-stingray.jpg" alt="Music Man StingRay">
+                <div class="guitar-info">
+                    <h3>Music Man StingRay 5</h3>
+                    <p>Known for its punchy and defined sound, the StingRay 5 is a favorite of many professional bassists.</p>
+                    <div class="price">$2,299.99</div>
+                    <a href="https://www.musicman.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Music Man StingRay 5', 2299.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Music Man StingRay 5', 2299.99,'music-man-stingray.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="guitar-item">
+                <img src="music-man-sub5.jpg" alt="Music Man Sub 5">
+                <div class="guitar-info">
+                    <h3>Music Man Sterling Sub 5</h3>
+                    <p>An affordable version of the iconic StingRay with great sound and playability.</p>
+                    <div class="price">$799.99</div>
+                    <a href="https://www.musicman.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Music Man Sterling Sub 5', 799.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Music Man Sterling Sub 5', 799.99,'music-man-sub5.jpg')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Added to Cart Text -->
+    <div class="added-text" id="addedText">Added to Cart!</div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 XYZ Music Store | All Rights Reserved</p>
+    </footer>
+
+<script>
+    // Initialize cart from localStorage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Function to add item to the cart
+    function addToCart(productName, productPrice, productImage) {
+        const product = {
+            name: productName,
+            price: productPrice,
+            image: productImage
+        };
+
+        cart.push(product); // Add the product to the cart
+        localStorage.setItem("cart", JSON.stringify(cart)); // Save cart to localStorage
+
+        // Show "Added to Cart" text
+        var text = document.getElementById("addedText");
+        text.style.display = "block";  // Show the "Added to Cart" text
+        setTimeout(function() {
+            text.style.display = "none";  // Hide the "Added to Cart" text after 3 seconds
+        }, 3000);
+    }
+</script>
+
+    
+
+</body>
+</html>

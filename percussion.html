@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percussion Instruments</title>
+    <style>
+        /* Resetting margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bangers', sans-serif; /* Rock-inspired font */
+        }
+
+        /* Body Styling */
+        body {
+            background-color: #141414; /* Dark background */
+            color: #fff;
+            text-align: center;
+            padding-bottom: 100px; /* Add padding to avoid footer overlap */
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #ff4500;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Grid Layout for Percussion Options */
+        .percussion-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            gap: 40px;
+            margin-top: 40px;
+            padding: 60px 20px;
+        }
+
+        /* Each percussion option */
+        .percussion-option {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .percussion-option img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .percussion-option:hover img {
+            opacity: 0.7; /* Darken image on hover */
+        }
+
+        .percussion-option:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        /* Overlay text */
+        .percussion-option-text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 1.2em;
+            background-color: rgba(0, 0, 0, 0.6); /* Dark background for text */
+            padding: 10px;
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .percussion-option:hover .percussion-option-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .percussion-option h2 {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #ff4500;
+            font-size: 2em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Footer Styling */
+        footer {
+            background: #1a1a1a;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+
+        footer p {
+            font-size: 0.8em;
+            letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>XYZ Music Store</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="contact-us.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Percussion Options Section -->
+    <section class="percussion-options">
+        <!-- Acoustic Drums Option -->
+        <div class="percussion-option">
+            <a href="acoustic-drums.html">
+                <img src="acoustic-drums.jpg" alt="Acoustic Drums">
+                <h2>Acoustic Drums</h2>
+                <div class="percussion-option-text">
+                    The classic drum set, perfect for live performances and practice. Offers great sound and dynamics for rock and other genres.
+                </div>
+            </a>
+        </div>
+
+        <!-- Electronic Drums Option -->
+        <div class="percussion-option">
+            <a href="electronic-drums.html">
+                <img src="electronic-drums.jpg" alt="Electronic Drums">
+                <h2>Electronic Drums</h2>
+                <div class="percussion-option-text">
+                    Explore cutting-edge technology with electronic drums. Perfect for quiet practice or creating unique sounds in the studio.
+                </div>
+            </a>
+        </div>
+
+        <!-- Cajón Option -->
+        <div class="percussion-option">
+            <a href="cajon.html">
+                <img src="cajon.jpg" alt="Cajón">
+                <h2>Cajón</h2>
+                <div class="percussion-option-text">
+                    A portable percussion instrument that offers deep bass and snare-like sounds. Ideal for acoustic sessions and smaller performances.
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 XYZ Music Store | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>

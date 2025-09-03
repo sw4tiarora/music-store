@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - XYZ Music Store</title>
+    <style>
+        /* Basic styling */
+        body {
+            background-color: #141414;
+            color: #fff;
+            font-family: 'Bangers', sans-serif;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cart-container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #444;
+        }
+
+        .cart-item-info {
+            flex-grow: 1;
+            text-align: left;
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-item img {
+            max-width: 100px;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+
+        .cart-item-price {
+            font-size: 1.2em;
+            color: #ff4500;
+        }
+
+        .cart-item button {
+            background-color: #ff4500;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cart-item button:hover {
+            background-color: #ff6347;
+        }
+
+        /* Clear Cart Button */
+        .clear-cart-btn {
+            background-color: #ff6347;
+            font-size: 1.2em;
+            margin-top: 30px;
+        }
+
+        .clear-cart-btn:hover {
+            background-color: #ff4500;
+        }
+
+        /* Empty Cart Message */
+        .empty-cart-message {
+            font-size: 1.5em;
+            text-align: center;
+            color: #ff4500;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cart Container -->
+    <div class="cart-container">
+        <h1>Your Cart</h1>
+
+        <!-- Cart Items List -->
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be dynamically injected here -->
+        </div>
+
+        <!-- Clear Cart Button -->
+        <button class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
+
+        <!-- Empty Cart Message -->
+        <div class="empty-cart-message" id="empty-cart-message" style="display: none;">
+            Your cart is empty!
+        </div>
+    </div>
+
+    <script>
+        // Function to display items in the cart
+        function displayCartItems() {
+            // Get cart items from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Get the cart items container
+            const cartItemsContainer = document.getElementById('cart-items');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+
+            // If cart is empty, show the empty cart message
+            if (cart.length === 0) {
+                cartItemsContainer.style.display = 'none';
+                emptyCartMessage.style.display = 'block';
+                return;
+            }
+
+            // Hide empty cart message and show cart items
+            cartItemsContainer.style.display = 'flex';
+            emptyCartMessage.style.display = 'none';
+
+            // Clear previous items in case of page refresh
+            cartItemsContainer.innerHTML = '';
+
+            // Loop through cart items and create the HTML for each item
+            cart.forEach(item => {
+                const cartItemDiv = document.createElement('div');
+                cartItemDiv.classList.add('cart-item');
+                cartItemDiv.innerHTML = `
+                    <div class="cart-item-info">
+                        <!-- Ensure the image URL is valid -->
+                        <img src="${item.image}" alt="${item.name}">
+                        <div>
+                            <h3>${item.name}</h3>
+                            <p class="cart-item-price">$${item.price}</p>
+                        </div>
+                    </div>
+                    <button onclick="removeFromCart('${item.name}')">Remove</button>
+                `;
+                cartItemsContainer.appendChild(cartItemDiv);
+            });
+        }
+
+        // Function to remove an item from the cart
+        function removeFromCart(itemName) {
+            // Get cart items from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Filter out the item to remove
+            cart = cart.filter(item => item.name !== itemName);
+
+            // Save updated cart to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Re-display the cart after removing the item
+            displayCartItems();
+        }
+
+        // Function to clear the entire cart
+        function clearCart() {
+            // Clear cart in localStorage
+            localStorage.removeItem('cart');
+
+            // Re-display the cart (this will show the empty cart message)
+            displayCartItems();
+        }
+
+        // Call the displayCartItems function when the page loads
+        window.onload = displayCartItems;
+    </script>
+
+</body>
+</html>

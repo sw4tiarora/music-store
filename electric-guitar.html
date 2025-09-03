@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Guitar</title>
+    <style>
+        /* Resetting margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bangers', sans-serif;
+        }
+
+        body {
+            background-color: #141414;
+            color: #fff;
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #ff4500;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Brands Section */
+        .brands {
+            margin-top: 60px;
+            padding: 20px;
+        }
+
+        .brand {
+            margin-bottom: 30px;
+            text-align: left;
+            padding: 10px;
+        }
+
+        .brand h2 {
+            color: #ff4500;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        /* Guitar Item Styling */
+        .guitar-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #222;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .guitar-item img {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+
+        .guitar-item .guitar-info {
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .guitar-item .price {
+            color: #ff4500;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .add-to-cart-btn {
+            background-color: #ff4500;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #ff6347;
+        }
+
+        .added-text {
+            display: none;
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        footer {
+            background: #1a1a1a;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+
+        footer p {
+            font-size: 0.8em;
+            letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>XYZ Music Store</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="contact-us.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Brands Section -->
+    <section class="brands">
+        <!-- Fender Electric Guitars -->
+        <div class="brand">
+            <h2>Fender Electric Guitars</h2>
+            <div class="guitar-item">
+                <img src="fender-stratocaster.jpg" alt="Fender Stratocaster">
+                <div class="guitar-info">
+                    <h3>Fender American Professional Stratocaster</h3>
+                    <p>A classic electric guitar, known for its versatile tones and smooth playability.</p>
+                    <div class="price">$1,299.99</div>
+                    <a href="https://www.fender.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Fender American Professional Stratocaster', 1299.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Fender American Professional Stratocaster', 1299.99,'fender-stratocaster.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="guitar-item">
+                <img src="fender-telecaster.jpg" alt="Fender Telecaster">
+                <div class="guitar-info">
+                    <h3>Fender American Professional Telecaster</h3>
+                    <p>The Telecaster is perfect for country, blues, and rock with its sharp, bright tone.</p>
+                    <div class="price">$1,399.99</div>
+                    <a href="https://www.fender.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Fender American Professional Telecaster', 1399.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Fender American Professional Telecaster', 1399.99,'fender-telecaster.jpg')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gibson Electric Guitars -->
+        <div class="brand">
+            <h2>Gibson Electric Guitars</h2>
+            <div class="guitar-item">
+                <img src="gibson-lespaul.jpg" alt="Gibson Les Paul">
+                <div class="guitar-info">
+                    <h3>Gibson Les Paul Standard '50s</h3>
+                    <p>A legendary guitar, known for its thick, warm sound and sustain.</p>
+                    <div class="price">$2,499.99</div>
+                    <a href="https://www.gibson.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Gibson Les Paul Standard \'50s', 2499.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Gibson Les Paul Standard \'50s', 2499.99, 'gibson-lespaul.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="guitar-item">
+                <img src="gibson-sg.jpg" alt="Gibson SG">
+                <div class="guitar-info">
+                    <h3>Gibson SG Standard</h3>
+                    <p>The SG is known for its smooth, fast neck and aggressive tone, perfect for hard rock and metal.</p>
+                    <div class="price">$1,699.99</div>
+                    <a href="https://www.gibson.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Gibson SG Standard', 1699.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Gibson SG Standard', 1699.99,'gibson-sg.jpg')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRS Electric Guitars -->
+        <div class="brand">
+            <h2>PRS Electric Guitars</h2>
+            <div class="guitar-item">
+                <img src="prs-custom24.jpg" alt="PRS Custom 24">
+                <div class="guitar-info">
+                    <h3>PRS Custom 24</h3>
+                    <p>Known for its beautiful woodwork, powerful sound, and versatility in various genres.</p>
+                    <div class="price">$3,299.99</div>
+                    <a href="https://www.prsguitars.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('PRS Custom 24', 3299.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('PRS Custom 24', 3299.99,'prs-custom24.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="guitar-item">
+                <img src="prs-se-241.jpg" alt="PRS SE 24">
+                <div class="guitar-info">
+                    <h3>PRS SE 24</h3>
+                    <p>Affordable yet high-quality PRS guitar with excellent tonal range and a sleek design.</p>
+                    <div class="price">$799.99</div>
+                    <a href="https://www.prsguitars.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('PRS SE 24', 799.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('PRS SE 24', 799.99,'prs-se-241.jpg')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ibanez Electric Guitars -->
+        <div class="brand">
+            <h2>Ibanez Electric Guitars</h2>
+            <div class="guitar-item">
+                <img src="ibanez-rg.jpg" alt="Ibanez RG">
+                <div class="guitar-info">
+                    <h3>Ibanez RG550</h3>
+                    <p>A classic shredder guitar with a fast neck and aggressive tone, ideal for metal and hard rock.</p>
+                    <div class="price">$1,099.99</div>
+                    <a href="https://www.ibanez.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Ibanez RG550', 1099.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Ibanez RG550', 1099.99,'ibanez-rg.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="guitar-item">
+                <img src="ibanez-s.jpg" alt="Ibanez S Series">
+                <div class="guitar-info">
+                    <h3>Ibanez S Series</h3>
+                    <p>A lightweight guitar with a sleek body and amazing playability. Perfect for shredding!</p>
+                    <div class="price">$899.99</div>
+                    <a href="https://www.ibanez.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Ibanez S Series', 899.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Ibanez S Series', 899.99,'ibanez-s.jpg')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Added to Cart Text -->
+    <div class="added-text" id="addedText">Added to Cart!</div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 XYZ Music Store | All Rights Reserved</p>
+    </footer>
+
+    <script>
+    // Initialize cart from localStorage or empty
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Function to add item to the cart
+    function addToCart(productName, productPrice, productImage) {
+        const product = {
+            name: productName,
+            price: productPrice,
+            image: productImage
+        };
+
+        cart.push(product); // Add the product
+        localStorage.setItem("cart", JSON.stringify(cart)); // Save to localStorage
+
+        // Show "Added to Cart" text
+        var text = document.getElementById("addedText");
+        text.style.display = "block";
+        setTimeout(function () {
+            text.style.display = "none";
+        }, 3000);
+    }
+    </script>
+
+
+</body>
+</html>

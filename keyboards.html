@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboards</title>
+    <style>
+        /* Resetting margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bangers', sans-serif;
+        }
+
+        body {
+            background-color: #141414;
+            color: #fff;
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #ff4500;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Brands Section */
+        .brands {
+            margin-top: 60px;
+            padding: 20px;
+        }
+
+        .brand {
+            margin-bottom: 30px;
+            text-align: left;
+            padding: 10px;
+        }
+
+        .brand h2 {
+            color: #ff4500;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        /* Keyboard Item Styling */
+        .guitar-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #222;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .guitar-item img {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+
+        .guitar-item .guitar-info {
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .guitar-item .price {
+            color: #ff4500;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .add-to-cart-btn {
+            background-color: #ff4500;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #ff6347;
+        }
+
+        .added-text {
+            display: none;
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        footer {
+            background: #1a1a1a;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+
+        footer p {
+            font-size: 0.8em;
+            letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>XYZ Music Store</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="contact-us.html">Contact Us</a> 
+        </nav>
+    </header>
+
+    <!-- Brands Section -->
+    <section class="brands">
+        <!-- Yamaha Keyboards -->
+        <div class="brand">
+            <h2>Yamaha Keyboards</h2>
+            <div class="guitar-item">
+                <img src="yamaha-p45.jpg" alt="Yamaha P-45">
+                <div class="guitar-info">
+                    <h3>Yamaha P-45 Digital Piano</h3>
+                    <p>A perfect starter keyboard with great feel and realistic sound. Ideal for new players.</p>
+                    <div class="price">$499.99</div>
+                    <a href="https://www.yamaha.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Yamaha P-45 Digital Piano', 499.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Yamaha P-45 Digital Piano', 499.99,'yamaha-p45.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="guitar-item">
+                <img src="yamaha-psr-e373.jpg" alt="Yamaha PSR-E373">
+                <div class="guitar-info">
+                    <h3>Yamaha PSR-E373 Keyboard</h3>
+                    <p>Perfect for learning and creating music with 61 keys, hundreds of sounds, and built-in lessons.</p>
+                    <div class="price">$299.99</div>
+                    <a href="https://www.yamaha.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Yamaha PSR-E373 Keyboard', 299.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Yamaha PSR-E373 Keyboard', 299.99,'yamaha-psr-e373.jpg')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Casio Keyboards -->
+        <div class="brand">
+            <h2>Casio Keyboards</h2>
+            <div class="guitar-item">
+                <img src="casio-ct-s300.jpg" alt="Casio CT-S300">
+                <div class="guitar-info">
+                    <h3>Casio CT-S300 Keyboard</h3>
+                    <p>A compact keyboard that’s great for beginners with 61 keys and fun features.</p>
+                    <div class="price">$149.99</div>
+                    <a href="https://www.casio.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Casio CT-S300 Keyboard', 149.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Casio CT-S300 Keyboard', 149.99,'casio-ct-s300.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="guitar-item">
+                <img src="casio-celviano.jpg" alt="Casio Celviano">
+                <div class="guitar-info">
+                    <h3>Casio Celviano AP-470</h3>
+                    <p>Premium digital piano with authentic sounds, perfect for advanced players and performances.</p>
+                    <div class="price">$799.99</div>
+                    <a href="https://www.casio.com" target="_blank">
+                        <button class="add-to-cart-btn" onclick="addToCart('Casio Celviano AP-470', 799.99)">Go to Website</button>
+                    </a>
+                    <button class="add-to-cart-btn" onclick="addToCart('Casio Celviano AP-470', 799.99,'casio-celviano.jpg')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Added to Cart Text -->
+    <div class="added-text" id="addedText">Added to Cart!</div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 XYZ Music Store | All Rights Reserved</p>
+    </footer>
+
+    <script>
+
+    // Initialize cart from localStorage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Function to add item to the cart
+    function addToCart(productName, productPrice, productImage) {
+        const product = {
+            name: productName,
+            price: productPrice,
+            image: productImage
+        };
+
+        cart.push(product); // Add the product to the cart
+        localStorage.setItem("cart", JSON.stringify(cart)); // Save cart to localStorage
+
+        // Show "Added to Cart" text
+        var text = document.getElementById("addedText");
+        text.style.display = "block";  // Show the "Added to Cart" text
+        setTimeout(function() {
+            text.style.display = "none";  // Hide the "Added to Cart" text after 3 seconds
+        }, 3000);
+    }
+
+    </script>
+
+</body>
+</html>

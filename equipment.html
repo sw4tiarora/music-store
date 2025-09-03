@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment - XYZ Music Store</title>
+    <style>
+        /* Resetting margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bangers', sans-serif; /* Rock-inspired font */
+        }
+
+        /* Body Styling */
+        body {
+            background-color: #141414; /* Dark background */
+            color: #fff;
+            text-align: center;
+            padding-bottom: 100px; /* Add padding to avoid footer overlap */
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #ff4500;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Categories Section */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 80px;
+            padding: 60px 20px;
+        }
+
+        .category {
+            position: relative;
+            width: 350px;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Darken image and show text on hover */
+        .category:hover img {
+            opacity: 0.6;
+        }
+
+        .category:hover .category-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .category-text {
+            position: absolute;
+            bottom: 20px;
+            left: 10px;
+            right: 10px;
+            color: #fff;
+            font-size: 1.1em;
+            background-color: rgba(0, 0, 0, 0.6); /* Dark background for text */
+            padding: 10px;
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .category h2 {
+            position: absolute;
+            top: 20px;
+            left: 10px;
+            color: #ff4500;
+            font-size: 2em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Footer Section */
+        footer {
+            background: #1a1a1a;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+
+        footer p {
+            font-size: 0.8em;
+            letter-spacing: 1px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>XYZ Music Store</h1>
+        <nav>
+            <a href=index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="contact-us.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <!-- Amps Category -->
+        <div class="category" id="amps">
+            <a href="amps.html"><img src="amps-icon.jpg" alt="Amps"></a>
+            <h2>Amps</h2>
+            <div class="category-text">
+                Explore our collection of amplifiers, from guitar amps to bass and PA systems, for your perfect sound.
+            </div>
+        </div>
+
+        <!-- Studio Equipment Category -->
+        <div class="category" id="studio-equipment">
+            <a href="studio-equipment.html"><img src="studio-equipment-icon.jpg" alt="Studio Equipment"></a>
+            <h2>Studio Equipment</h2>
+            <div class="category-text">
+                Everything you need for a professional studio setup, from mixing boards to sound interfaces and monitors.
+            </div>
+        </div>
+
+        <!-- Others Equipment Category -->
+        <div class="category" id="others">
+            <a href="others.html"><img src="others-icon.jpg" alt="Others Equipment"></a>
+            <h2>Others</h2>
+            <div class="category-text">
+                Find cables, stands, pedals, and other accessories to complete your musical setup.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 XYZ Music Store | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>

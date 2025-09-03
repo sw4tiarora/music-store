@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitar Collection</title>
+    <style>
+        /* Resetting margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bangers', sans-serif; /* Rock-inspired font */
+        }
+
+        /* Body Styling */
+        body {
+            background-color: #141414; /* Dark background */
+            color: #fff;
+            text-align: center;
+            padding-bottom: 100px; /* Add padding to avoid footer overlap */
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #ff4500;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Grid Layout for Guitar Options */
+        .guitar-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            gap: 40px;
+            margin-top: 40px;
+            padding: 60px 20px;
+        }
+
+        /* Each guitar option */
+        .guitar-option {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .guitar-option img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .guitar-option:hover img {
+            opacity: 0.7; /* Darken image on hover */
+        }
+
+        .guitar-option:hover {
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        /* Overlay text */
+        .guitar-option-text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 1.2em;
+            background-color: rgba(0, 0, 0, 0.6); /* Dark background for text */
+            padding: 10px;
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .guitar-option:hover .guitar-option-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .guitar-option h2 {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #ff4500;
+            font-size: 2em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Footer Styling */
+        footer {
+            background: #1a1a1a;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+
+        footer p {
+            font-size: 0.8em;
+            letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>XYZ Music Store</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="contact-us.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Guitar Options Section -->
+    <section class="guitar-options">
+        <!-- Acoustic Guitar Option -->
+        <div class="guitar-option">
+            <a href="acoustic-guitar.html">
+                <img src="acoustic-guitar.jpg" alt="Acoustic Guitar">
+                <h2>Acoustic Guitar</h2>
+                <div class="guitar-option-text">
+                    A perfect choice for beginners and professionals alike. The acoustic guitar offers rich tones and is great for all music genres.
+                </div>
+            </a>
+        </div>
+
+        <!-- Electric Guitar Option -->
+        <div class="guitar-option">
+            <a href="electric-guitar.html">
+                <img src="eguitar.jpg" alt="Electric Guitar">
+                <h2>Electric Guitar</h2>
+                <div class="guitar-option-text">
+                    Explore the world of rock and metal with our electric guitars. Sleek designs and powerful sound are waiting for you.
+                </div>
+            </a>
+        </div>
+
+        <!-- Bass Guitar Option -->
+        <div class="guitar-option">
+            <a href="bass-guitar.html">
+                <img src="bass-guitar.jpg" alt="Bass Guitar">
+                <h2>Bass Guitar</h2>
+                <div class="guitar-option-text">
+                    Bass guitars bring rhythm and groove to the music. Get your groove on with deep, punchy bass tones.
+                </div>
+            </a>
+        </div>
+
+        <!-- Ukulele Option -->
+        <div class="guitar-option">
+            <a href="ukulele.html">
+                <img src="ukulele.jpg" alt="Ukulele">
+                <h2>Ukulele</h2>
+                <div class="guitar-option-text">
+                    The ukulele is perfect for light, breezy melodies. Small, portable, and full of charm – it’s the ideal beginner instrument.
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 XYZ Music Store | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>
